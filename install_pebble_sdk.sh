@@ -90,6 +90,14 @@ cd cards-example
 pebble build
 pebble install --emulator basalt
 
+output "15] Update emulator certificate store to fix HTTPS"
+cd ${HOME}/pebble-dev/pebble-sdk-4.6-rc2-linux64/
+source .env/bin/activate
+pip install certifi
+deactivate
+pebble kill
+pebble wipe
+
 output "All done! You are ready to build for Pebble"
 output "Use https://dev-portal.rebble.io to upload to the Rebble appstore"
 output "See https://developer.rebble.io for a mirror of the Pebble dev docs"
